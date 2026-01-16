@@ -65,6 +65,35 @@ section {
   color: blue;
 }
 
+.link__hover-effect {
+    position: relative;
+}
+
+.link__hover-effect:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    height: 3px;
+    width: 0;
+    right: 0;
+    background-color: blue;
+    transition: all 300ms ease;
+}
+
+.link__hover-effect--white:after {
+background-color: white;
+}
+
+.link__hover-effect--black:after {
+    background-color: black;
+}
+
+.link__hover-effect:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+
 /*
 
 Landing Page
@@ -89,6 +118,13 @@ Landing Page
   max-width: 100%;
   padding: 0 30px;
   display: flex;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .header__para {
@@ -180,15 +216,13 @@ nav {
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
-  margin-left:auto;
+  margin: 0 auto;
   height: 100px;
 }
 
 #personal--logo {
   height: 50px;
   width: 50px;
-  left: 50px;
-  position: absolute;
 }
 
 
@@ -214,6 +248,32 @@ nav {
 
 /*
 
+MODAL
+
+*/
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1100px;
+    height: 700px;
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.modal__half {
+    width: 50%;
+}
+
+.modal__
+
+/*
+
 PROJECTS
 
 */
@@ -224,25 +284,26 @@ PROJECTS
     margin-bottom: 60px;
 }
 
+.project {
+    margin-bottom: 135px;
+}
+
 .project__img {
     width: 100%;
+    transition: all 600ms ease;
+}
+
+.project:hover .project__img {
+    transform: scale(1.07);
+    filter: blur(5px);
+    transition: all 300ms ease;
 }
 
 .project__wrapper {
     position: relative;
     border-radius: 20px;
-    box-shadow: 0 20px 80px 0 black;
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.45);
     overflow: hidden;
-}
-
-.project__wrapper:hover .project__description {
-    opacity: 1;
-    transform: translateY(-50%)
-}
-
-.project__wrapper:hover .project__img {
-    transform: scale(1.07);
-    filter: blur(5px);
 }
 
 .project__description {
@@ -255,6 +316,17 @@ PROJECTS
     opacity: 0;
     transition: opacity 300ms, transform 450ms ease;
 }
+
+.project__wrapper:hover .project__description {
+    opacity: 1;
+    transform: translateY(-50%)
+}
+
+.project__wrapper:hover .project__img {
+    transform: scale(1.07);
+    filter: blur(5px);
+}
+
 
 .project__wrapper:hover .project__wrapper--bg {
     opacity: 0.7;
@@ -295,6 +367,8 @@ Footer
     background-color: black;
     display: flex;
     padding: 6% 0;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer__row {
